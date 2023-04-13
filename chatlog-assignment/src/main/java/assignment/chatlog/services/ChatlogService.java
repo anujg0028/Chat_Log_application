@@ -27,7 +27,6 @@ public class ChatlogService {
 	public ResponseEntity<String> saveChatlog(String user, ChatlogEntity chatlogEntity) {
 
 		chatlogEntity.setUser(user);
-		System.out.println(chatlogEntity);
 		chatlogEntity = chatlogRepository.save(chatlogEntity);
 		return ResponseEntity.status(HttpStatus.CREATED).body(chatlogEntity.getMessageId());
 	}
