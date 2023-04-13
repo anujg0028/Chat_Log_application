@@ -37,7 +37,7 @@ public class ChatlogService {
 			start = chatlogRepository.findById(pageReq.getStart()).orElse(null);
 		}
 
-		Pageable paging = PageRequest.ofSize(pageReq.getLimit()).withSort(Sort.by(Order.desc("timestamp")));
+		Pageable paging = PageRequest.ofSize(pageReq.getLimit()).withSort(Sort.by("timestamp").descending());
 		Page<ChatlogEntity> pageResult = null;
 		if (start == null) {
 			pageResult = chatlogRepository.findByUser(user, paging);
